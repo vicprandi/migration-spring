@@ -1,0 +1,8 @@
+name: migration-spring
+version: 1.0.0
+description: Plugin para migrar projetos Maven do 1 para o 2.
+tags: [maven, migration]
+templates:
+  - path: templates/pom.xml
+    action: merge
+    targetPath: pom.xml

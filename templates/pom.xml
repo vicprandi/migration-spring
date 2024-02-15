@@ -1,0 +1,35 @@
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.openrewrite.maven</groupId>
+            <artifactId>rewrite-maven-plugin</artifactId>
+            <version>5.16.1</version>
+            <configuration>
+                <activeRecipes>
+                    <!-- Java 11 -->
+                    <recipe>org.openrewrite.java.migrate.Java8toJava11</recipe>
+
+                    <!-- Spring Boot -->
+                    <recipe>org.openrewrite.java.spring.boot2.SpringBootProperties_2_7</recipe>
+                    <recipe>org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7</recipe>
+                    <recipe>org.openrewrite.java.spring.boot2.MigrateDatabaseCredentials</recipe>
+                    <recipe>org.openrewrite.java.spring.boot2.RemoveObsoleteSpringRunners</recipe>
+                    <recipe>org.openrewrite.java.spring.boot2.MigrateToWebServerFactoryCustomizer</recipe>
+                    <recipe>org.openrewrite.java.spring.boot2.MigrateHibernateConstraintsToJavax</recipe>
+                    <recipe>org.openrewrite.java.spring.boot2.SpringBoot2JUnit4to5Migration</recipe>
+
+                    <!-- Lombok -->
+                    <recipe>org.openrewrite.java.migrate.lombok.UpdateLombokToJava11</recipe>
+                </activeRecipes>
+            </configuration>
+
+            <dependencies>
+                <dependency>
+                    <groupId>org.openrewrite.recipe</groupId>
+                    <artifactId>rewrite-spring</artifactId>
+                    <version>5.1.6</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+    </plugins>
+</build>
